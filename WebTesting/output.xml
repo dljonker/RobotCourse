@@ -1,42 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20230829 16:43:08.942" rpa="false" schemaversion="4">
-<suite id="s1" name="amazonTestes" source="C:\Users\davy.jonker\Documents\Dev\CursoUdemy\RobotFramework\WebTesting\amazonTestes.robot">
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20230829 18:32:05.218" rpa="false" schemaversion="4">
+<suite id="s1" name="amazonTestes" source="C:\Users\davy.jonker\Documents\Dev\CursoUdemy\RobotFramework\RobotCourse\WebTesting\amazonTestes.robot">
 <test id="s1-t1" name="Caso de testes 01 - Acesso ao menu de eletrônicos" line="9">
 <kw name="Abrir o navegdor" library="amazonResources" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=Firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230829 16:43:09.118" level="INFO">Opening browser 'Firefox' to base url 'None'.</msg>
-<status status="PASS" starttime="20230829 16:43:09.118" endtime="20230829 16:43:15.023"/>
+<msg timestamp="20230829 18:32:05.388" level="INFO">Opening browser 'Firefox' to base url 'None'.</msg>
+<status status="PASS" starttime="20230829 18:32:05.388" endtime="20230829 18:32:11.169"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230829 16:43:15.024" endtime="20230829 16:43:15.294"/>
+<status status="PASS" starttime="20230829 18:32:11.169" endtime="20230829 18:32:11.428"/>
 </kw>
-<status status="PASS" starttime="20230829 16:43:09.118" endtime="20230829 16:43:15.295"/>
+<status status="PASS" starttime="20230829 18:32:05.388" endtime="20230829 18:32:11.428"/>
 </kw>
 <kw name="Acessar a home page do site Amazon.com.br" library="amazonResources">
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230829 16:43:15.295" level="INFO">Opening url 'https://www.amazon.com.br/'</msg>
-<status status="PASS" starttime="20230829 16:43:15.295" endtime="20230829 16:43:17.261"/>
+<msg timestamp="20230829 18:32:11.429" level="INFO">Opening url 'https://www.amazon.com.br/'</msg>
+<status status="PASS" starttime="20230829 18:32:11.429" endtime="20230829 18:32:13.144"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>locator=${MenuEletronicos}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230829 16:43:17.261" endtime="20230829 16:43:17.429"/>
+<status status="PASS" starttime="20230829 18:32:13.144" endtime="20230829 18:32:13.210"/>
 </kw>
-<status status="PASS" starttime="20230829 16:43:15.295" endtime="20230829 16:43:17.429"/>
+<status status="PASS" starttime="20230829 18:32:11.429" endtime="20230829 18:32:13.210"/>
+</kw>
+<kw name="Entrar no menu &quot;Eletrônicos&quot;" library="amazonResources">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${MenuEletronicos}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230829 18:32:13.213" level="INFO">Clicking element '//a[@href='/Eletronicos-e-Tecnologia/b/?ie=UTF8&amp;node=16209062011&amp;ref_=nav_cs_electronics'][contains(.,'Eletrônicos')]'.</msg>
+<status status="PASS" starttime="20230829 18:32:13.212" endtime="20230829 18:32:15.121"/>
+</kw>
+<status status="PASS" starttime="20230829 18:32:13.212" endtime="20230829 18:32:15.121"/>
+</kw>
+<kw name="Verificar se aparece a frase &quot;Eletrônicos e Tecnologia&quot;" library="amazonResources">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=${TextoHeaderEletronicos}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230829 18:32:15.121" endtime="20230829 18:32:15.169"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${HeaderEletronicos}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230829 18:32:15.169" endtime="20230829 18:32:15.202"/>
+</kw>
+<status status="PASS" starttime="20230829 18:32:15.121" endtime="20230829 18:32:15.202"/>
 </kw>
 <doc>Este teste verificar o menu de eletrônicos da página da Amazon
 Continuação da documentação</doc>
 <tag>categorias</tag>
 <tag>menus</tag>
-<status status="PASS" starttime="20230829 16:43:09.118" endtime="20230829 16:43:17.429"/>
+<status status="PASS" starttime="20230829 18:32:05.387" endtime="20230829 18:32:15.203"/>
 </test>
 <doc>Essa suite testa o site da Amazon.com.br</doc>
-<status status="PASS" starttime="20230829 16:43:08.943" endtime="20230829 16:43:17.445"/>
+<status status="PASS" starttime="20230829 18:32:05.219" endtime="20230829 18:32:15.204"/>
 </suite>
 <statistics>
 <total>
