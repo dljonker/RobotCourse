@@ -10,7 +10,7 @@ ${HeaderEletronicos}    //h1[contains(.,'Eletrônicos e Tecnologia')]
 
 *** Keywords ***
 
-Abrir o navegdor
+Abrir o navegador
     Open Browser    browser=Firefox
     Maximize Browser Window
 
@@ -43,3 +43,44 @@ Clicar no botão de pesquisa
 
 Verificar o resultado da pesquisa, listando o produto pesquisado
     Element Should Be Visible    locator=//img[@alt='Console Xbox Series S']
+
+Verificar o resultado da pesquisa se está listando o produto "Console Xbox Series S"
+    Verificar o resultado da pesquisa, listando o produto pesquisado
+
+Adicionar o produto "Console Xbox Series S" no carrinho
+    Element Should Be Visible    locator=//span[@class='a-size-base a-color-base'][contains(.,'Novo')]
+    Click Element    locator=//span[@class='a-price-whole'][contains(.,'2.039,')]
+    Element Should Be Visible    locator=submit.add-to-cart
+    Click Button    locator=//*[@id="add-to-cart-button"]
+
+Verificar se o produto "Console Xbox Series S" foi adicionado com sucesso
+    Click Element    locator=//span[@aria-hidden='true'][contains(.,'Carrinho')]
+    Element Should Be Visible    locator=//img[contains(@alt,'Console Xbox Series S, Abre em uma nova aba')]
+
+Remover o produto "Console Xbox Series S" do carrinho
+    Element Should Be Visible    locator=sc-subtotal-label-activecart
+    Click Element    locator=//input[contains(@value,'Excluir')]
+    
+Verificar se o carrinho fica vazio
+    Wait Until Element Is Visible    locator=//h1[@class='a-spacing-mini a-spacing-top-base'][contains(.,'Seu carrinho de compras da Amazon está vazio.')]
+
+Dado que estou na home page da Amazon.com.br
+    Abrir o navegador
+    Acessar a home page do site Amazon.com.br
+
+Quando adicionar o produto "Console Xbox Series S" no carrinho
+    Clicar no botão de pesquisa
+    Verificar o resultado da pesquisa, listando o produto pesquisado
+    Adicionar o produto "Console Xbox Series S" no carrinho
+
+Então o produto "Console Xbox Series S" deve ser mostrado no carrinho
+    Verificar se o produto "Console Xbox Series S" foi adicionado com sucesso
+
+E existe o produto "Console Xbox Series S" no carrinho
+     Verificar se o produto "Console Xbox Series S" foi adicionado com sucesso
+
+Quando remover o produto "Console Xbox Series S" do carrinho
+    Remover o produto "Console Xbox Series S" do carrinho
+
+Então o carrinho deve ficar vazio
+    Verificar se o carrinho fica vazio
