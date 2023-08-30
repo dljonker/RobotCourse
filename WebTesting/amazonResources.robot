@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 
 *** Variables ***
 ${URL}    https://www.amazon.com.br/
@@ -14,6 +15,7 @@ Abrir o navegdor
     Maximize Browser Window
 
 Fechar o navegador
+    Capture Page Screenshot
     Close Browser
 
 Acessar a home page do site Amazon.com.br
@@ -26,3 +28,18 @@ Entrar no menu "Eletrônicos"
 Verificar se aparece a frase "Eletrônicos e Tecnologia"
     Wait Until Page Contains    text=${TextoHeaderEletronicos}
     Wait Until Element Is Visible    locator=${HeaderEletronicos}
+
+Verificar se o título da página fica "${Titulo}"
+    Title Should Be    title=${Titulo}
+
+Verificar se aparece a categoria "${NomeCategoria}"
+    Element Should Be Visible    locator=//img[contains(@alt,'${NomeCategoria}')]
+
+Digitar o nome de produto "${Produto}" no campo de pesquisa
+    Input Text    locator=//input[contains(@name,'field-keywords')]    text=${Produto}
+
+Clicar no botão de pesquisa
+    Click Button    locator=//input[@value='Ir']
+
+Verificar o resultado da pesquisa, listando o produto pesquisado
+    Element Should Be Visible    locator=//img[@alt='Console Xbox Series S']
